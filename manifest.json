@@ -1,44 +1,69 @@
 {
-    "manifest_version": 3,
-    "name": "درع العفاف",
-    "version": "1.0",
-    "description": "حظر المواقع الإباحية وحماية المستخدمين",
-    "permissions": [
-      "storage",
-      "webRequest",
-      "webRequestBlocking",
-      "tabs",
-      "activeTab",
-      "webNavigation",
-      "<all_urls>"
-    ],
-    "host_permissions": [
-      "<all_urls>"
-    ],
-    "background": {
-      "service_worker": "background.js"
-    },
-    "content_scripts": [
-      {
-        "matches": ["<all_urls>"],
-        "js": ["content.js"],
-        "run_at": "document_start"
-      }
-    ],
-    "action": {
-      "default_popup": "popup.html",
-      "default_icon": {
-        "16": "icon1.png",
-        "48": "icon1.png",
-        "128": "icon1.png"
-      }
-    },
-    "icons": {
-      "16": "icon1.png",
-      "48": "icon1.png",
-      "128": "icon1.png"
-    },
-    "content_security_policy": {
-      "extension_pages": "script-src 'self'; object-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;"
+  "manifest_version": 3,
+  "name": "درع العفاف - Shield of Chastity",
+  "version": "2.0.0",
+  "description": "حماية متقدمة من المحتوى غير اللائق باستخدام الذكاء الاصطناعي",
+  "permissions": [
+    "storage",
+    "tabs",
+    "webNavigation",
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback",
+    "alarms",
+    "notifications"
+  ],
+  "host_permissions": [
+    "https://raw.githubusercontent.com/RedTeammohamed2/BlockWeb/main/blockWeb.json",
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "js/background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["js/content.js", "js/safe-search.js"],
+      "css": ["css/content.css"],
+      "run_at": "document_start"
     }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon1.png",
+      "48": "icons/icon1.png",
+      "128": "icons/icon1.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon1.png",
+    "48": "icons/icon1.png",
+    "128": "icons/icon1.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "pages/blocked.html",
+        "pages/report.html",
+        "pages/settings.html",
+        "pages/help.html",
+        "pages/about.html",
+        "pages/istighfar.html",
+        "css/blocked.css",
+        "css/popup.css",
+        "js/background.js"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "rules/blocking_rules.json"
+      }
+    ]
   }
+}
