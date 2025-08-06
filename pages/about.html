@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>حول إضافة درع العفاف</title>
+
+    <!-- رابط Font Awesome CDN -->
+    <link rel="stylesheet" href="../css/fontawesome-free-6.4.0-web/css/all.min.css" />
+
+    <style>
+        @font-face {
+            font-family: "JF-Flat-Regular";
+            src: url("../fonts/JF-Flat-Regular.ttf") format("truetype");
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            font-family: "JF-Flat-Regular", Arial, sans-serif;
+            background-color: #ffffff;
+            color: #196619;
+            /* أخضر قوي */
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 14px;
+            /* تصغير حجم النص العام */
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px 35px;
+            border-radius: 16px;
+            box-shadow: 0 6px 18px rgba(25, 102, 25, 0.12);
+            background-color: #ffffff;
+            /* بيضاء */
+            border: 2px solid #27ae60;
+            /* إطار أخضر */
+            transition: box-shadow 0.3s ease;
+        }
+
+        .container:hover {
+            box-shadow: 0 10px 25px rgba(25, 102, 25, 0.25);
+        }
+
+        h1,
+        h2 {
+            font-weight: 900;
+            margin-bottom: 16px;
+            color: #1b5e20;
+            /* أخضر داكن */
+            letter-spacing: 1px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            font-size: 1.9rem;
+            border-bottom: 3px solid #27ae60;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 40px;
+        }
+
+        p {
+            font-size: 0.95rem;
+            margin-bottom: 18px;
+            color: #196619;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0 15px;
+            margin: 0;
+        }
+
+        ul li {
+            font-size: 1rem;
+            margin-bottom: 12px;
+            padding-right: 28px;
+            position: relative;
+            color: #1b5e20;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        ul li::before {
+            content: "\f058";
+            /* أيقونة علامة صح من FontAwesome */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            top: 2px;
+            color: #27ae60;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        ul li:hover {
+            color: #27ae60;
+        }
+
+        ul li:hover::before {
+            color: #196619;
+        }
+
+        a {
+            color: #27ae60;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 2px;
+        }
+
+        a:hover {
+            color: #1b5e20;
+            border-bottom: 2px solid #1b5e20;
+            text-decoration: none;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 12px;
+            color: #1b5e20;
+            margin-top: 60px;
+            padding-bottom: 20px;
+            border-top: 2px solid #27ae60;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Responsive */
+        @media (max-width: 650px) {
+            .container {
+                padding: 25px 20px;
+                margin: 25px 10px;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            p,
+            ul li,
+            a {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <h1><i class="fas fa-shield-alt" style="color:#27ae60; margin-left:8px;"></i> عن إضافة درع العفاف</h1>
+        <p>
+            إضافة <strong>درع العفاف</strong> هي أداة قوية مصممة لحماية المستخدمين من المحتوى غير اللائق والخادش للحياء
+            على الإنترنت، مما يضمن بيئة تصفح آمنة ونظيفة تحافظ على طهارة القلب والعقل.
+        </p>
+        <p>
+            تعمل الإضافة على حجب الروابط والمواقع والصفحات التي تحتوي على محتوى غير مرغوب فيه، مع واجهة مستخدم بسيطة
+            وسريعة الاستجابة.
+        </p>
+
+        <h2><i class="fas fa-star" style="color:#27ae60; margin-left:8px;"></i> المميزات</h2>
+        <ul>
+            <li>حجب المحتوى غير المناسب بشكل فعال وفوري.</li>
+            <li>تصميم بسيط وسهل الاستخدام يناسب جميع الفئات.</li>
+            <li>تحديثات دورية لإضافة قواعد حجب جديدة وتحسين الأداء.</li>
+            <li>دعم كامل للغة العربية مع اتجاه نص من اليمين لليسار.</li>
+            <li>خيارات تحكم متقدمة تسمح بتخصيص الحجب حسب الحاجة.</li>
+        </ul>
+
+        <h2><i class="fas fa-envelope" style="color:#27ae60; margin-left:8px;"></i> التواصل والدعم</h2>
+        <p>
+            أي استفسارات أو دعم، يرجى التواصل معنا عبر:
+            <a href="https://deralafaf.wuaze.com/"><i class="fas fa-paper-plane"
+                    style="margin-left:6px;"></i>https://deralafaf.wuaze.com/</a>
+        </p>
+    </main>
+
+    <footer>
+        &copy; 2025 درع العفاف. جميع الحقوق محفوظة.
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محتوى محظور | حاجز المحتوى</title>
+    <link rel="stylesheet" href="../css/fontawesome-free-6.4.0-web/css/all.min.css">
+    <style>
+        /* ========================================================= */
+        @font-face {
+            font-family: "JF-Flat-Regular";
+            src: url("/fonts/JF-Flat-Regular.ttf") format("truetype");
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* ========================================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "JF-Flat-Regular", Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .block-container {
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            padding: 30px;
+
+        }
+
+        .block-icon {
+            font-size: 80px;
+            color: #e74c3c;
+            margin-bottom: 25px;
+        }
+
+        .block-message {
+            background: #fff;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            border: 2px solid #e74c3c;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.1);
+
+        }
+
+        .counter-badge {
+            background: #e74c3c;
+            color: white;
+            border-radius: 50px;
+            padding: 5px 15px;
+            font-size: 14px;
+            display: inline-block;
+            margin-top: 10px;
+
+        }
+
+        .back-btn {
+            font-family: "JF-Flat-Regular", Arial, sans-serif;
+            margin-top: 20px;
+            background-color: #27ae60;
+            color: #fff;
+            border: none;
+            padding: 10px 25px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .back-btn:hover {
+            background-color: #1e8449;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="block-container">
+        <i class="fas fa-ban block-icon"></i>
+
+        <div class="block-message" style="direction: rtl;">
+            <h2 style="color: #e74c3c; margin-bottom: 15px;">لحظة صدق مع نفسك...</h2>
+
+            <p style="font-size: 18px; color: #2c3e50; line-height: 2;">
+                إنت دلوقتي قدام اختيار بسيط…  
+                <strong style="color:#c0392b;">ترضى بالهروب؟</strong>  
+                ولا تثبت وتقول لنفسك: "كفاية لحد هنا"؟
+                <br><br>
+
+                اللي جاي في حياتك مش محتاج ذنب جديد…  
+                محتاجك أنضف، أقوى، وواقف على رجلك.
+                <br><br>
+
+                <span style="color: #2980b9;">كل مرة بتمسك نفسك، إنت مش بس بتقاوم…  
+                إنت بتبني رجلك الحقيقي اللي جواك.</span>
+                <br><br>
+
+                <p style="font-size: 15px; color: #7f8c8d;">فقد قال سبحانه: وَمَنْ يَتَّقِ اللَّهَ يَجْعَلْ لَهُ مَخْرَجًا</p>
+            </p>
+
+            <div class="counter-badge" style="margin-top: 20px;">
+                🚫 تم منع <span id="blockedCount">1</span> محاولة  
+                <br>
+                💪 وإنت لسه ماسك نفسك… وكدا إنت كسبت.
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+</html>

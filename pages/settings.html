@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title> صفحة الإعدادات</title>
+
+    <!-- تضمين FontAwesome -->
+    <link rel="stylesheet" href="../css/fontawesome-free-6.4.0-web/css/all.min.css" />
+
+    <style>
+        /* تضمين الخط المحلي */
+        @font-face {
+            font-family: "JF Flat";
+            src: url("../fonts/JF-Flat-Regular.ttf") format("truetype");
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* إعدادات عامة */
+        html,
+        body {
+            width: 400px;
+            /* عرض ثابت */
+            height: 600px;
+            /* ارتفاع ثابت */
+            margin: 0;
+            padding: 20px;
+            /* موجود عندك */
+            box-sizing: border-box;
+            overflow-y: auto;
+            /* السماح بالتمرير عمودي إذا المحتوى أكبر من الارتفاع */
+        }
+
+        body {
+            font-family: "JF Flat", Tahoma, Arial, Segoe UI, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+            color: #222;
+            direction: rtl;
+            text-align: right;
+        }
+
+        h1 {
+            color: #27ae60;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 25px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .card h2 {
+            color: #27ae60;
+            margin-bottom: 12px;
+        }
+
+        /* قسم إضافة قواعد الحجب */
+        .rules-input {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .rules-input input[type="text"] {
+            flex: 1;
+            padding: 10px 12px;
+            font-size: 1rem;
+            border: 2px solid #27ae60;
+            border-radius: 8px;
+            outline-offset: 2px;
+            transition: border-color 0.3s ease;
+        }
+
+        .rules-input input[type="text"]:focus {
+            border-color: #1e8449;
+        }
+
+        .rules-input button {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 0 16px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .rules-input button:hover {
+            background-color: #1e8449;
+        }
+
+        /* جدول عرض القواعد */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1rem;
+        }
+
+        th,
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: #eafaf1;
+            color: #27ae60;
+            text-align: right;
+        }
+
+        td button.delete-btn {
+            background: transparent;
+            border: none;
+            color: #e74c3c;
+            font-size: 1.4rem;
+            cursor: pointer;
+            user-select: none;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        td button.delete-btn:hover {
+            color: #c0392b;
+        }
+
+        /* قسم العداد */
+        .counter {
+            font-size: 1.3rem;
+            color: #27ae60;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 15px;
+            justify-content: center;
+        }
+
+        .counter .icon {
+            font-size: 1.8rem;
+        }
+
+        /* زر إعادة تعيين */
+        .reset-btn {
+            display: block;
+            margin: 0 auto;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .reset-btn:hover {
+            background-color: #1e8449;
+        }
+
+        .reset-btn .fa-rotate {
+            font-size: 1.3rem;
+        }
+
+        /* نفس أسلوب الجدول السابق */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1rem;
+        }
+
+        th,
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: #eafaf1;
+            color: #27ae60;
+            text-align: right;
+        }
+
+        tbody tr:hover {
+            background-color: #f0fdf5;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            body {
+                padding: 15px;
+            }
+
+            .card {
+                padding: 15px;
+                margin-bottom: 20px;
+            }
+
+            .rules-input input[type="text"] {
+                font-size: 0.95rem;
+            }
+
+            .rules-input button {
+                font-size: 1.3rem;
+                padding: 0 12px;
+            }
+
+            .counter {
+                font-size: 1.1rem;
+            }
+
+            .reset-btn {
+                font-size: 1rem;
+                padding: 10px 25px;
+            }
+        }
+
+        #toggle-youtube,
+        #toggle-facebook,
+        #toggle-tiktok,
+        #toggle-instagram {
+            font-family: "JF Flat", Tahoma, Arial, Segoe UI, sans-serif;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 8px 18px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 3px 6px rgba(39, 174, 96, 0.4);
+            user-select: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            /* قللت الفجوة بين النص والأيقونة */
+        }
+
+        #toggle-youtube:hover,
+        #toggle-facebook:hover,
+        #toggle-tiktok:hover,
+        #toggle-instagram:hover {
+            background-color: #1e8449;
+            transform: scale(1.05);
+        }
+
+        #toggle-youtube[aria-pressed="false"],
+        #toggle-facebook[aria-pressed="false"] #toggle-tiktok[aria-pressed="false"],
+        #toggle-instagram[aria-pressed="false"] {
+            background-color: #ccc;
+            color: #666;
+            box-shadow: none;
+        }
+
+        #toggle-youtube[aria-pressed="false"]:hover,
+        #toggle-facebook[aria-pressed="false"]:hover,
+        #toggle-tiktok[aria-pressed="false"]:hover,
+        #toggle-instagram[aria-pressed="false"]:hover {
+            background-color: #999;
+            color: #fff;
+            box-shadow: 0 3px 6px rgba(153, 153, 153, 0.5);
+        }
+
+        /* الأيقونات تبقى بنفس الحجم تقريبا */
+        #toggle-youtube::before {
+            content: "\f167";
+            /* أيقونة YouTube */
+            font-family: "Font Awesome 6 Brands";
+            font-weight: 400;
+            font-size: 1.1rem;
+        }
+
+
+        #toggle-facebook::before {
+            content: "\f09a";
+            font-family: "Font Awesome 6 Brands";
+            font-weight: 400;
+            font-size: 1.1rem;
+        }
+
+        #toggle-tiktok::before {
+            content: "\e07b";
+            /* أيقونة TikTok */
+            font-family: "Font Awesome 6 Brands";
+            font-weight: 400;
+            font-size: 1.1rem;
+        }
+
+        #toggle-instagram::before {
+            content: "\f16d";
+            /* أيقونة Instagram */
+            font-family: "Font Awesome 6 Brands";
+            font-weight: 400;
+            font-size: 1.1rem;
+        }
+
+
+        /* password */
+
+        #password-overlay {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(135deg, #eafaf1, #ffffff);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.5s ease;
+            font-family: "JF Flat", Tahoma, sans-serif;
+        }
+
+        .password-box {
+            background: white;
+            border-radius: 16px;
+            padding: 30px 25px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            width: 300px;
+            animation: slideIn 0.6s ease;
+        }
+
+        .password-box h2 {
+            color: #27ae60;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .password-box input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #27ae60;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .password-box input:focus {
+            border-color: #1e8449;
+        }
+
+        .password-box button {
+            margin-top: 15px;
+            width: 100%;
+            padding: 12px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .password-box button:hover {
+            background-color: #1e8449;
+        }
+
+        #password-warning {
+            margin-top: 12px;
+            color: red;
+            font-size: 0.9rem;
+            min-height: 1.2em;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="password-overlay">
+        <div class="password-box">
+            <h2 id="password-title">يرجى إدخال كلمة المرور</h2>
+            <input type="password" id="password-input" placeholder="كلمة المرور">
+            <button id="password-submit">دخول</button>
+            <p id="password-warning"></p>
+        </div>
+    </div>
+
+
+
+    <h1> صفحة الإعدادات</h1>
+    <section class="card" aria-label="التحكم في حجب المحتوى">
+        <h2>التحكم في الحجب</h2>
+        <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+            <button id="toggle-youtube" type="button" aria-pressed="false" aria-label="مفعل/غير مفعل حجب يوتيوب شورتس">
+                حجب يوتيوب شورتس: مفعل
+            </button>
+            <button id="toggle-facebook" type="button" aria-pressed="false" aria-label="مفعل/غير مفعل حجب فيسبوك ريلز">
+                حجب فيسبوك ريلز: مفعل
+            </button>
+            <!-- في قسم التحكم في الحجب -->
+            <button id="toggle-tiktok" type="button" aria-pressed="false" aria-label="مفعل/غير مفعل حجب تيك توك">
+                حجب تيك توك: مفعل
+            </button>
+            <button id="toggle-instagram" type="button" aria-pressed="false" aria-label="مفعل/غير مفعل حجب إنستجرام ريلز">
+                حجب إنستجرام ريلز: مفعل
+            </button>
+        </div>
+    </section>
+
+
+
+    <section class="card" aria-label="عداد عدد الأيام بدون محتوى إباحي">
+        <h2>عداد الأيام بدون محتوى إباحي</h2>
+        <div class="counter">
+            <i class="fas fa-clock icon" aria-hidden="true"></i>
+            <span id="days-counter">مر 0 يوم بدون محتوى إباحي</span>
+        </div>
+        <button class="reset-btn" type="button" aria-label="إعادة تعيين العداد" id="reset-counter-btn">
+            إعادة تعيين العداد
+            <i class="fas fa-rotate fa-rotate-270"></i>
+        </button>
+    </section>
+    <script src="../js/settings.js" defer></script>
+
+
+</body>
+
+</html>
